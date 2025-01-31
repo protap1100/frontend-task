@@ -13,12 +13,14 @@ const Navbar = () => {
   ];
 
   const languages = [
-    { code: "EN", name: "English" },
-    { code: "ES", name: "Español" },
+    { code: "EN", name: "(English)" },
+    { code: "TH", name: "(Thai)" },
+    { code: "ID", name: "(Bhasa Indonesia)" },
+    { code: "TW", name: "(Traditional Chinese)" },
   ];
 
   return (
-    <nav className="bg-blue-600 text-white">
+    <nav className="bg-blue-600 text-white py-2 md:py-4">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
@@ -35,7 +37,7 @@ const Navbar = () => {
                 onMouseEnter={() => setIsSolutionsOpen(true)}
                 onMouseLeave={() => setIsSolutionsOpen(false)}
               >
-                <button className="flex items-center space-x-1 hover:text-blue-200  text-lg p-2">
+                <button className="flex items-center space-x-1 cursor-pointer hover:text-blue-200  text-lg p-2">
                   <span>Solutions</span>
                   <svg
                     className={`w-4 h-4 transition-transform duration-300 ${
@@ -94,7 +96,7 @@ const Navbar = () => {
               onMouseEnter={() => setIsLanguageOpen(true)}
               onMouseLeave={() => setIsLanguageOpen(false)}
             >
-              <button className="flex items-center space-x-2 border border-white/70 font-bold rounded-full p-2 hover:bg-blue-500">
+              <button className="flex items-center space-x-2 border cursor-pointer border-white/70 font-bold rounded-full p-2 hover:bg-blue-500">
                 <MdLanguage />
                 <span>EN</span>
                 <svg
@@ -115,7 +117,7 @@ const Navbar = () => {
               </button>
               {/* Language Dropdown Menu */}
               <div
-                className={`absolute left-0 mt-2 w-36 bg-white rounded-md shadow-lg transform transition-all duration-300 ease-in-out ${
+                className={`absolute cursor-pointer left-0 mt-2 w-48 bg-white rounded-md shadow-lg transform transition-all duration-300 ease-in-out ${
                   isLanguageOpen
                     ? "opacity-100 visible translate-y-0"
                     : "opacity-0 invisible -translate-y-2"
@@ -126,9 +128,9 @@ const Navbar = () => {
                     <a
                       key={lang.code}
                       href="#"
-                      className="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600"
+                      className="flex  border-b-2 mx-2 border-gray-400 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600"
                     >
-                      <span className="w-8">{lang.code}</span>
+                      <span className="w-8 ">{lang.code}</span>
                       <span>{lang.name}</span>
                     </a>
                   ))}
@@ -139,7 +141,7 @@ const Navbar = () => {
 
           {/* Contact Button */}
           <div>
-            <button className="bg-transparent border border-white hover:bg-white hover:text-blue-500 text-white px-4 py-2 rounded text-xl font-semibold flex items-center gap-2 transition duration-150 ease-linear hover:scale-102">
+            <button className="bg-transparent border hidden  border-white hover:bg-white hover:text-blue-500 text-white px-4 py-2 rounded text-xl font-semibold lg:flex items-center gap-2 transition duration-150 ease-linear hover:scale-102">
               Contact Us
               <MdOutlineKeyboardArrowRight className="transition-transform duration-150 hover:translate-x-0.5" />
             </button>
@@ -186,9 +188,24 @@ const Navbar = () => {
             <div className="space-y-1">
               <button
                 onClick={() => setIsSolutionsOpen(!isSolutionsOpen)}
-                className="w-full text-left px-3 py-2 text-white hover:bg-blue-700 rounded-md"
+                className="w-full text-left px-3 py-2 text-white hover:bg-blue-700 rounded-md flex items-center justify-between"
               >
                 Solutions
+                <svg
+                  className={`w-4 h-4 transition-transform duration-300 ${
+                    isSolutionsOpen ? "rotate-180" : ""
+                  }`}
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
               </button>
               <div
                 className={`pl-4 space-y-1 ${
@@ -220,13 +237,30 @@ const Navbar = () => {
             </a>
 
             {/* Language Dropdown for Mobile */}
-            <div className="px-3 py-2">
+            <div className="mt-5 p-1 mx-auto w-1/2 rounded-3xl border border-gray-300">
               <button
                 onClick={() => setIsLanguageOpen(!isLanguageOpen)}
-                className="w-full text-left flex items-center justify-between text-white hover:bg-blue-700 rounded-md px-3 py-2"
+                className="flex items-center justify-center gap-x-2 w-full text-white hover:bg-blue-50 rounded-md p-1 hover:transition hover:delay-150 hover:duration-300 hover:ease-in-out"
               >
+                <span className="text-xl">
+                  <MdLanguage />
+                </span>
                 <span>Language</span>
-                <span>EN</span>
+                <svg
+                  className={`w-4 h-4 transition-transform duration-300 ${
+                    isLanguageOpen ? "rotate-180" : ""
+                  }`}
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
               </button>
               <div
                 className={`mt-1 space-y-1 ${
@@ -237,7 +271,7 @@ const Navbar = () => {
                   <a
                     key={lang.code}
                     href="#"
-                    className="block px-3 py-2 text-white hover:bg-blue-700 rounded-md text-sm"
+                    className="block px-3 py-2 text-white hover:bg-blue-700 rounded-md text-sm text-center"
                   >
                     {lang.name}
                   </a>
@@ -245,7 +279,7 @@ const Navbar = () => {
               </div>
             </div>
 
-            <button className="w-full text-center px-3 py-2 bg-blue-500 hover:bg-blue-400 text-white rounded-lg">
+            <button className="w-full mt-3 text-center px-3 py-2 bg-blue-500 hover:bg-blue-400 text-white rounded-lg">
               Contact Us
             </button>
           </div>
