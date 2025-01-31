@@ -1,9 +1,11 @@
+import PhilosophySection from "../components/PhilosophySection";
+
 const Home = () => {
-    return (
-        <div>
-            <h1>I am Home</h1>
-        </div>
-    );
+  return (
+    <div>
+      <PhilosophySection></PhilosophySection>
+    </div>
+  );
 };
 
 export default Home;
