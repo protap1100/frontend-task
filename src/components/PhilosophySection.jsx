@@ -1,18 +1,12 @@
 import image1 from "../assets/extra/first.svg";
 import image2 from "../assets/extra/second.avif";
 import image3 from "../assets/extra/third.svg";
+import SectionTitle from "./reuseable/SectionTitle";
 
 const PhilosophySection = () => {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <h1 className="uppercase text-center text-blue-500 text-sm">
-          Our Philosophy
-        </h1>
-        <h1 className="text-center text-4xl font-semibold">
-          Human-centered innovation
-        </h1>
-      </div>
+      <SectionTitle title={"OUR PHILOSOPHY"} description={"Human-centred innovation"}></SectionTitle>
       {/* Diagram Part */}
       <div>
         <div></div>
