@@ -9,6 +9,7 @@ import image1 from "../assets/future-img/onee.avif";
 import image2 from "../assets/future-img/two.avif";
 import image3 from "../assets/future-img/three.avif";
 import image4 from "../assets/future-img/four.avif";
+import SectionTitle from "./reuseable/SectionTitle";
 
 const slides = [
   {
@@ -58,16 +59,18 @@ const FutureSection = () => {
 
   return (
     <div className="max-w-6xl mx-auto px-4 py-12 text-center">
-      <h3 className="text-blue-500 uppercase text-sm">Technology built for you</h3>
-      <h1 className="text-4xl font-bold text-gray-900">The future of finance</h1>
+      <SectionTitle
+        title={"Technology built for you"}
+        description={"The future of finance"}
+      />
 
       {/* Navigation Tabs */}
-      <div className="flex justify-center gap-4 mt-6">
+      <div className="flex flex-wrap justify-center gap-2 md:gap-4 mt-6">
         {slides.map((slide, index) => (
           <button
             key={slide.id}
             onClick={() => handleTabClick(index)}
-            className={`px-4 py-2 text-sm rounded-full transition-all ${
+            className={`px-4 py-2 text-sm md:text-xl font-bold rounded-full transition-all cursor-pointer ${
               activeIndex === index
                 ? "bg-blue-100 text-blue-700 font-semibold"
                 : "text-gray-500 hover:text-blue-500"
@@ -80,7 +83,7 @@ const FutureSection = () => {
 
       {/* Swiper Slider */}
       <Swiper
-        spaceBetween={50}
+        spaceBetween={30}
         slidesPerView={1}
         modules={[Pagination]}
         pagination={{ clickable: true }}
@@ -90,17 +93,25 @@ const FutureSection = () => {
       >
         {slides.map((slide) => (
           <SwiperSlide key={slide.id}>
-            <div className="flex flex-col md:flex-row bg-white shadow-lg rounded-xl p-8 gap-6 items-center">
+            <div className="flex flex-col md:flex-row bg-white rounded-xl p-6 md:p-8 gap-6 items-center shadow-xl">
               {/* Text Content */}
-              <div className="md:w-1/2 text-left">
+              <div className="w-full md:w-1/2 text-center md:text-left">
                 <h3 className="text-blue-500 uppercase text-sm">{slide.title}</h3>
-                <h1 className="text-3xl font-bold text-gray-900">{slide.heading}</h1>
-                <p className="text-gray-600 mt-4">{slide.description}</p>
+                <h1 className="text-2xl md:text-3xl font-bold text-gray-900">
+                  {slide.heading}
+                </h1>
+                <p className="text-gray-600 mt-3 md:mt-4 text-sm md:text-base">
+                  {slide.description}
+                </p>
               </div>
 
               {/* Image */}
-              <div className="md:w-1/2">
-                <img src={slide.image} alt={slide.heading} className="rounded-lg shadow-md" />
+              <div className="w-full md:w-1/2 flex justify-center">
+                <img
+                  src={slide.image}
+                  alt={slide.heading}
+                  className="w-full md:w-[350px] lg:w-[400px] h-[250px] object-fit rounded-lg shadow-md"
+                />
               </div>
             </div>
           </SwiperSlide>
