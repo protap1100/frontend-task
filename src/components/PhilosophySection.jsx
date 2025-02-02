@@ -8,8 +8,8 @@ import SectionTitle from "./reuseable/SectionTitle";
 
 const PhilosophySection = () => {
   useEffect(() => {
-    AOS.init({ duration: 1000, once: false }); // Animates every time on scroll
-    AOS.refresh(); // Ensures it re-triggers on scroll
+    AOS.init({ duration: 1000, once: false }); 
+    AOS.refresh(); 
   }, []);
 
   return (
@@ -21,7 +21,6 @@ const PhilosophySection = () => {
         />
       </div>
 
-      {/* Content Part */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
         <div
           className="space-y-3 bg-gradient-to-r from-cyan-50 to-blue-50 rounded p-8"

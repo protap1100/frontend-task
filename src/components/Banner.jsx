@@ -5,7 +5,6 @@ import image from "../assets/men.avif";
 const Banner = () => {
   return (
     <div className="relative max-w-7xl mx-auto mt-10 px-5 flex flex-col lg:flex-row gap-10 items-center">
-      {/* Left Side - Text (Static) */}
       <div className="flex-1 flex flex-col justify-center gap-5 text-center lg:text-left">
         <h1 className="text-lg md:text-xl text-blue-600 tracking-wide uppercase">
           Powering the Future of Finance
@@ -26,7 +25,6 @@ const Banner = () => {
       </div>
 
       <div className="relative flex-1 flex justify-center">
-        {/* Main Image */}
         <img
           className="w-[280px] -z-10 h-[320px] md:w-[350px] md:h-[400px] lg:w-[450px] lg:h-[500px] object-cover rounded-lg shadow-xl"
           src={image}

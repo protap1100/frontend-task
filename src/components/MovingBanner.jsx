@@ -5,8 +5,8 @@ export default function MovingBanner() {
     <motion.div
       className="w-full h-64 flex items-center justify-center text-white text-4xl font-bold bg-gradient-to-r from-blue-500 to-blue-700 rounded-lg"
       whileHover={{
-        x: [0, 2, -2, 0], // Slight side-to-side movement
-        y: [0, -2, 2, 0], // Slight up-and-down movement
+        x: [0, 2, -2, 0], 
+        y: [0, -2, 2, 0], 
       }}
       transition={{
         duration: 2,
