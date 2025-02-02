@@ -25,7 +25,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex-shrink-0 flex items-center">
-            <span className="text-5xl font-bold">ANYTECH</span>
+            <span className="text-5xl font-bold cursor-pointer">ANYTECH</span>
           </div>
 
           {/* Desktop Menu */}
