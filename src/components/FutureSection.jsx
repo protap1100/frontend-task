@@ -2,9 +2,8 @@ import { useState, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
-import { Pagination } from "swiper/modules";
-
-// Import your images
+import "swiper/css/autoplay";
+import { Pagination, Autoplay } from "swiper/modules";
 import image1 from "../assets/future-img/onee.avif";
 import image2 from "../assets/future-img/two.avif";
 import image3 from "../assets/future-img/three.avif";
@@ -15,9 +14,10 @@ const slides = [
   {
     id: 1,
     title: "Customer focused",
-    heading: "Enhance customer experience",
+    heading: "Purpose Build Finalcial Solutions",
     description:
-      "Deliver exceptional financial experiences by putting customers at the center of your strategy.",
+      "Elavate Customer Experience with our cutting-edge financial solutions designed for flexibility. Real-time transaction account processing capabilities, specifically designed for retail financial services.",
+    description2: "Experice the future of finance with AnyTech. Real Time Transaction Account Processing Capabilities, specifically designed for retail financial services.",
     image: image1,
   },
   {
@@ -64,7 +64,6 @@ const FutureSection = () => {
         description={"The future of finance"}
       />
 
-      {/* Navigation Tabs */}
       <div className="flex flex-wrap justify-center gap-2 md:gap-4 mt-6">
         {slides.map((slide, index) => (
           <button
@@ -81,11 +80,15 @@ const FutureSection = () => {
         ))}
       </div>
 
-      {/* Swiper Slider */}
       <Swiper
         spaceBetween={30}
         slidesPerView={1}
-        modules={[Pagination]}
+        // loop={true}
+        autoplay={{
+          delay: 3000,
+          disableOnInteraction: false,
+        }}
+        modules={[Pagination, Autoplay]}
         pagination={{ clickable: true }}
         onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
         onSwiper={(swiper) => (swiperRef.current = swiper)}
@@ -94,9 +97,10 @@ const FutureSection = () => {
         {slides.map((slide) => (
           <SwiperSlide key={slide.id}>
             <div className="flex flex-col md:flex-row bg-white rounded-xl p-6 md:p-8 gap-6 items-center shadow-xl">
-              {/* Text Content */}
               <div className="w-full md:w-1/2 text-center md:text-left">
-                <h3 className="text-blue-500 uppercase text-sm">{slide.title}</h3>
+                <h3 className="text-blue-500 uppercase text-sm">
+                  {slide.title}
+                </h3>
                 <h1 className="text-2xl md:text-3xl font-bold text-gray-900">
                   {slide.heading}
                 </h1>
@@ -105,12 +109,11 @@ const FutureSection = () => {
                 </p>
               </div>
 
-              {/* Image */}
               <div className="w-full md:w-1/2 flex justify-center">
                 <img
                   src={slide.image}
                   alt={slide.heading}
-                  className="w-full md:w-[350px] lg:w-[400px] h-[250px] object-fit rounded-lg shadow-md"
+                  className="w-full md:w-[350px] lg:w-[400px] h-[250px] object-cover rounded-lg shadow-md"
                 />
               </div>
             </div>
